@@ -112,10 +112,15 @@
                 </ul>
               </div>
             </div>
+
+            @if ($todo->description)
+            <p class="ms-1 mb-1 text-secondary">{{ $todo->description }}</p>
+            @endif
+
             <h6 class="card-subtitle ms-1 mb-1 text-muted">{{ $todo->created_at }}</h6>
             <div class="d-flex flex-wrap mx-1 mb-1">
               @foreach ($todo->tags()->orderBy('id', 'asc')->get() as $tag)
-                <span class="badge bg-secondary mt-2 me-2 fw-light">{{ $tag->name }}</span>
+              <span class="badge bg-secondary mt-2 me-2 fw-light">{{ $tag->name }}</span>
               @endforeach
             </div>
           </div>
